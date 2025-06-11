@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>测试报告</title>
+  <style>
+    body { font-family: sans-serif; margin: 2em; background: #f9f9f9; }
+    h1 { margin-bottom: 0.5em; }
+    .summary { margin-bottom: 2em; padding: 1em; background: #eef; border-left: 5px solid #00f; border-radius: 6px; }
+    .package { margin-bottom: 2em; padding: 1em; background: #fff; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+    .test { margin: 0.5em 0; padding: 0.5em; border-left: 5px solid gray; background: #f0f0f0; border-radius: 4px; }
+    .PASS { border-color: green; background: #e6ffed; }
+    .FAIL { border-color: red; background: #ffe6e6; }
+    .details { white-space: pre-wrap; font-family: monospace; background: #f8f8f8; padding: 0.5em; border-radius: 4px; margin-top: 0.5em; display: none; }
+    .toggle-btn { cursor: pointer; color: blue; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>测试报告</h1>
+
+  <div class="summary">
+    <strong>概览：</strong><br>
+    总测试数: {{.Total}}，
+	通过: {{.Passed}}，
+    失败: {{.Failed}}，
+    耗时: {{printf "%.2fs" .Duration}}<br>
+
+  </div>
+
+  {{range .Packages}}
+  <div class="package">
+    <h2> 包名: {{.Name}}</h2>
+    <p>总数: {{len .TestCases}}，✅: {{.Passed}}，❌: {{.Failed}}，耗时: {{printf "%.2fs" .Duration}}</p>
+    {{range .TestCases}}
+    <div class="test {{.Status}}">
+  		<strong>{{.Name}}</strong> {{if eq .Status "PASS"}}✅{{else}}❌{{end}} ({{printf "%.2fs" .Duration}})
+  		<div class="toggle-btn" onclick="toggleDetails(this)">显示详情</div>
+  		<div class="details">{{.Output}}</div>
+	</div>
+    {{end}}
+  </div>
+  {{end}}
+
+<script>
+function toggleDetails(elem) {
+  const d = elem.nextElementSibling;
+  if (d.style.display === 'none' || d.style.display === '') {
+    d.style.display = 'block';
+    elem.textContent = '隐藏详情';
+  } else {
+    d.style.display = 'none';
+    elem.textContent = '显示详情';
+  }
+}
+</script>
+</body>
+</html>

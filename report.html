@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>测试报告</title>
+  <style>
+    body { font-family: sans-serif; margin: 2em; background: #f9f9f9; }
+    h1 { margin-bottom: 0.5em; }
+    .summary { margin-bottom: 2em; padding: 1em; background: #eef; border-left: 5px solid #00f; border-radius: 6px; }
+    .package { margin-bottom: 2em; padding: 1em; background: #fff; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+    .test { margin: 0.5em 0; padding: 0.5em; border-left: 5px solid gray; background: #f0f0f0; border-radius: 4px; }
+    .PASS { border-color: green; background: #e6ffed; }
+    .FAIL { border-color: red; background: #ffe6e6; }
+    .details { white-space: pre-wrap; font-family: monospace; background: #f8f8f8; padding: 0.5em; border-radius: 4px; margin-top: 0.5em; display: none; }
+    .toggle-btn { cursor: pointer; color: blue; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>测试报告</h1>
+
+  <div class="summary">
+    <strong>概览：</strong><br>
+    总测试数: 5，
+	通过: 2，
+    失败: 3，
+    耗时: 1.00s<br>
+
+  </div>
+
+  
+  <div class="package">
+    <h2> 包名: one</h2>
+    <p>总数: 3，✅: 2，❌: 1，耗时: 0.00s</p>
+    
+    <div class="test PASS">
+  		<strong>framework/cache/one.Test_ceshi02</strong> ✅ (0.00s)
+  		<div class="toggle-btn" onclick="toggleDetails(this)">显示详情</div>
+  		<div class="details">一个成功的case</div>
+	</div>
+    
+    <div class="test PASS">
+  		<strong>framework/cache/one.Test_ceshi03</strong> ✅ (0.00s)
+  		<div class="toggle-btn" onclick="toggleDetails(this)">显示详情</div>
+  		<div class="details"></div>
+	</div>
+    
+    <div class="test FAIL">
+  		<strong>framework/cache/one.Test_ceshi01</strong> ❌ (0.00s)
+  		<div class="toggle-btn" onclick="toggleDetails(this)">显示详情</div>
+  		<div class="details">一个失败的case
+    first_test_.go:21: 
+        	Error Trace:	C:/Users/vivia/文件/code/framework/cache/one/first_test_.go:21
+        	Error:      	Not equal: 
+        	            	expected: 1
+        	            	actual  : 2
+        	Test:       	framework/cache/one.Test_ceshi01</div>
+	</div>
+    
+  </div>
+  
+  <div class="package">
+    <h2> 包名: two</h2>
+    <p>总数: 2，✅: 0，❌: 2，耗时: 1.00s</p>
+    
+    <div class="test FAIL">
+  		<strong>framework/cache/two.Test_ceshi01</strong> ❌ (0.00s)
+  		<div class="toggle-btn" onclick="toggleDetails(this)">显示详情</div>
+  		<div class="details">    second_test_.go:18: 
+        	Error Trace:	C:/Users/vivia/文件/code/framework/cache/two/second_test_.go:18
+        	Error:      	Not equal: 
+        	            	expected: 1
+        	            	actual  : 2
+        	Test:       	framework/cache/two.Test_ceshi01</div>
+	</div>
+    
+    <div class="test FAIL">
+  		<strong>framework/cache/two.Test_ceshi02</strong> ❌ (1.00s)
+  		<div class="toggle-btn" onclick="toggleDetails(this)">显示详情</div>
+  		<div class="details">2025-06-11 22:35:59.7436847 +0800 CST m=+1.034189501
+    second_test_.go:26: 
+        	Error Trace:	C:/Users/vivia/文件/code/framework/cache/two/second_test_.go:26
+        	Error:      	Not equal: 
+        	            	expected: 1
+        	            	actual  : 2
+        	Test:       	framework/cache/two.Test_ceshi02</div>
+	</div>
+    
+  </div>
+  
+
+<script>
+function toggleDetails(elem) {
+  const d = elem.nextElementSibling;
+  if (d.style.display === 'none' || d.style.display === '') {
+    d.style.display = 'block';
+    elem.textContent = '隐藏详情';
+  } else {
+    d.style.display = 'none';
+    elem.textContent = '显示详情';
+  }
+}
+</script>
+</body>
+</html>
