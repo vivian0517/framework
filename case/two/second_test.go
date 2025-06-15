@@ -25,8 +25,3 @@ func Test_ceshi02(t *testing.T) {
 	fmt.Println(time.Now())
 	assert.Equal(t, 1, 2)
 }
-
-func Test_ceshi03(t *testing.T) {
-
-	t.Skip("lalal")
-}

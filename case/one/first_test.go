@@ -23,7 +23,6 @@ func Test_ceshi01(t *testing.T) {
 
 func Test_ceshi02(t *testing.T) {
 	fmt.Println("一个成功的case")
-	
 	assert.Equal(t, 1, 1)
 }
 
