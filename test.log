@@ -1,0 +1,37 @@
++++ 运行包 [one] 的测试，共 3 个
+Main Start
+=== RUN   framework/cache/one.Test_ceshi02
+一个成功的case
+--- PASS: framework/cache/one.Test_ceshi02 (0.00s)
+=== RUN   framework/cache/one.Test_ceshi03
+--- PASS: framework/cache/one.Test_ceshi03 (0.00s)
+=== RUN   framework/cache/one.Test_ceshi01
+一个失败的case
+    first_test_.go:21: 
+        	Error Trace:	C:/Users/vivia/文件/code/framework/cache/one/first_test_.go:21
+        	Error:      	Not equal: 
+        	            	expected: 1
+        	            	actual  : 2
+        	Test:       	framework/cache/one.Test_ceshi01
+--- FAIL: framework/cache/one.Test_ceshi01 (0.00s)
+FAIL
++++ 运行包 [two] 的测试，共 2 个
+Main Start
+=== RUN   framework/cache/two.Test_ceshi01
+    second_test_.go:18: 
+        	Error Trace:	C:/Users/vivia/文件/code/framework/cache/two/second_test_.go:18
+        	Error:      	Not equal: 
+        	            	expected: 1
+        	            	actual  : 2
+        	Test:       	framework/cache/two.Test_ceshi01
+--- FAIL: framework/cache/two.Test_ceshi01 (0.00s)
+=== RUN   framework/cache/two.Test_ceshi02
+2025-06-11 22:35:59.7436847 +0800 CST m=+1.034189501
+    second_test_.go:26: 
+        	Error Trace:	C:/Users/vivia/文件/code/framework/cache/two/second_test_.go:26
+        	Error:      	Not equal: 
+        	            	expected: 1
+        	            	actual  : 2
+        	Test:       	framework/cache/two.Test_ceshi02
+--- FAIL: framework/cache/two.Test_ceshi02 (1.00s)
+FAIL
